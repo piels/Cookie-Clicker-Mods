@@ -15,9 +15,9 @@ Empty ──────────────────────┬─�
 
 console.log('loaded JQB');
 var JQB = {
-	G : Game.Objects['Farm'].minigame;
-	q : [];
-	soilMode : undefined;
+	G : Game.Objects['Farm'].minigame,
+	q : [],
+	soilMode : undefined,
 	tickLoop : function () {
 		
 		var nextLoop = setTimeout(this.tickLoop(), G.nextStep - Date.now() + 5000);

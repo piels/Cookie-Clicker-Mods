@@ -37,7 +37,7 @@ for (var i = 0; i < 4; i++) {
 		mode : undefined,
 		center : undefined,
 		check : function() {
-			console.log("quad " + num);
+			console.log("quad " + this.num);
 			
 		}
 	}	

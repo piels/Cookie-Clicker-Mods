@@ -19,9 +19,8 @@ var JQB = {
 	q : [],
 	soilMode : undefined,
 	tickLoop : function () {
-		
+		console.log('JQB loop');
 		var nextLoop = setTimeout(JQB.tickLoop, JQB.G.nextStep - Date.now() + 5000);
-		
 	}
 }
 

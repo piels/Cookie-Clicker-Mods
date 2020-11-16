@@ -20,7 +20,7 @@ var JQB = {
 	soilMode : undefined,
 	tickLoop : function () {
 		
-		var nextLoop = setTimeout(JQB.tickLoop, G.nextStep - Date.now() + 5000);
+		var nextLoop = setTimeout(JQB.tickLoop, JQB.G.nextStep - Date.now() + 5000);
 		
 	}
 }

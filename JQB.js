@@ -24,13 +24,22 @@ var JQB = {
 				console.log(JQB.G.getTile(i,j));
 			}
 		}
+		for (i = 0; i < 4; i++) {
+			JQB.q[i].check();
+		}
 		var nextLoop = setTimeout(JQB.tickLoop, JQB.G.nextStep - Date.now() + 5000);
 	}
 }
 
-for (var i = 0; i<4; i++) {
+for (var i = 0; i < 4; i++) {
 	JQB.q[i] = {
-		
+		num : i,
+		mode : undefined,
+		center : undefined,
+		check : function() {
+			console.log("quad " + num);
+			
+		}
 	}	
 }
 

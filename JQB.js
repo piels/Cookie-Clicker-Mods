@@ -48,22 +48,22 @@ function JqbQuad(g, i) {
   const x0 = (i % 2) * 3;
   const y0 = Math.floor(i / 2) * 3;
   this.tiles = [
-    this.garden.tiles[x0    , y0],      //northwest
-    this.garden.tiles[x0 + 1, y0],      //north
-    this.garden.tiles[x0 + 2, y0],      //northeast
-    this.garden.tiles[x0 + 2, y0 + 1],  //east
-    this.garden.tiles[x0 + 2, y0 + 2],  //southeast
-    this.garden.tiles[x0 + 1, y0 + 2],  //south
-    this.garden.tiles[x0    , y0 + 2],  //southwest
-    this.garden.tiles[x0    , y0 + 1],  //west
-    this.garden.tiles[x0 + 1, y0 + 1]   //center
+    this.garden.tiles[x0    ][y0],      //northwest
+    this.garden.tiles[x0 + 1][y0],      //north
+    this.garden.tiles[x0 + 2][y0],      //northeast
+    this.garden.tiles[x0 + 2][y0 + 1],  //east
+    this.garden.tiles[x0 + 2][y0 + 2],  //southeast
+    this.garden.tiles[x0 + 1][y0 + 2],  //south
+    this.garden.tiles[x0    ][y0 + 2],  //southwest
+    this.garden.tiles[x0    ][y0 + 1],  //west
+    this.garden.tiles[x0 + 1][y0 + 1]   //center
   ];
   this.outer = this.tiles.slice(0,7);
   this.center = this.tiles[8];
 
   this.check = function() {
     console.log("quad " + this.n);
-    this.outer.forEach(t => console.log(t.plantName()));
+    this.outer.forEach(t => console.log(t.plantName);
   }
 
 }

@@ -72,6 +72,11 @@ function JqbTile(garden, i, j) {
   this.garden = garden;
   this.tile = G.getTile(i, j);
   this.plantName = function() {
-    return G.plantsById[this.tile[0] - 1].name;
+    let plantId = this.tile[0] - 1;
+    if (plantId < 0) {
+      return "empty"
+    } else {
+      return G.plantsById[this.tile[0] - 1].name;
+    }
   }
 }

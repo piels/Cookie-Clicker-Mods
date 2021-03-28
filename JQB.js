@@ -14,7 +14,7 @@ Empty ◄─────────────────────┬─�
 
 
 console.log('loaded JQB');
-const G = Game.Objects['Farm'].minigame;
+var G = Game.Objects['Farm'].minigame;
 var JQB = new JqbGarden;
 JQB.tickLoop();
 

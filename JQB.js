@@ -60,6 +60,7 @@ function JqbQuad(g, i) {
   const center = tiles[8];
 
   function check() {
+    console.log("quad " + n);
     tiles.forEach(t => console.log(t.name));
   }
 

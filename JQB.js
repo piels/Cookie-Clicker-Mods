@@ -25,19 +25,19 @@ function JqbGarden() {
   this.tiles = [];
   var i, j;
   for (i = 0; i < 6; i++) {
-    tiles[i] = new Array();
+    this.tiles[i] = new Array();
     for (j = 0; j < 6; j++) {
-      tiles[i][j] = new JqbTile(this, i, j);
+      this.tiles[i][j] = new JqbTile(this, i, j);
     }
   }
   for ( i = 0; i < 4; i++) {
-    quads[i] = new JqbQuad(this, i);
+    this.quads[i] = new JqbQuad(this, i);
   }
   this.tickLoop = function(){
     for (i = 0; i < 4; i++) {
-			quads[i].check();
+			this.quads[i].check();
 		}
-    var nextLoop = setTimeout(tickLoop, G.nextStep - Date.now() + 5000);
+    var nextLoop = setTimeout(this.tickLoop, G.nextStep - Date.now() + 5000);
   }
 
 }
@@ -58,12 +58,12 @@ function JqbQuad(g, i) {
     garden.tiles[x0    , y0 + 1],  //west
     garden.tiles[x0 + 1, y0 + 1]   //center
   ];
-  this.outer = tiles.slice(0,7);
-  this.center = tiles[8];
+  this.outer = this.tiles.slice(0,7);
+  this.center = this.tiles[8];
 
   this.check = function() {
-    console.log("quad " + n);
-    tiles.forEach(t => console.log(t.plantName()));
+    console.log("quad " + this.n);
+    this.outer.forEach(t => console.log(t.plantName()));
   }
 
 }
@@ -72,6 +72,6 @@ function JqbTile(garden, i, j) {
   this.garden = garden;
   this.tile = G.getTile(i, j);
   this.plantName = function() {
-    return G.plantsbyId[tile[0] - 1].name;
+    return G.plantsbyId[this.tile[0] - 1].name;
   }
 }

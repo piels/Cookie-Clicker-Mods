@@ -20,11 +20,12 @@ JQB.tickLoop();
 
 function JqbGarden() {
   // const gardenGame = Game.Objects['Farm'].minigame;
-  var soilMode = undefined;
-  var quads = [];
-  var tiles = [];
+  this.soilMode = undefined;
+  this.quads = [];
+  this.tiles = [];
   var i, j;
-  for (i = 0; i<6;i++) {
+  for (i = 0; i < 6; i++) {
+    tiles[i] = new Array();
     for (j = 0; j < 6; j++) {
       tiles[i][j] = new JqbTile(this, i, j);
     }
@@ -32,7 +33,7 @@ function JqbGarden() {
   for ( i = 0; i < 4; i++) {
     quads[i] = new JqbQuad(this, i);
   }
-  function tickLoop(){
+  this.tickLoop = function(){
     for (i = 0; i < 4; i++) {
 			quads[i].check();
 		}

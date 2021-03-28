@@ -63,7 +63,7 @@ function JqbQuad(g, i) {
 
   this.check = function() {
     console.log("quad " + this.n);
-    this.outer.forEach(t => console.log(t.plantName);
+    this.outer.forEach(t => console.log(t.plantName()));
   }
 
 }

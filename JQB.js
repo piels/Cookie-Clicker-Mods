@@ -72,6 +72,6 @@ function JqbTile(garden, i, j) {
   this.garden = garden;
   this.tile = G.getTile(i, j);
   this.plantName = function() {
-    return G.plantsbyId[this.tile[0] - 1].name;
+    return G.plantsById[this.tile[0] - 1].name;
   }
 }

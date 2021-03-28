@@ -45,8 +45,8 @@ function JqbGarden() {
 function JqbQuad(g, i) {
   this.n = i;
   this.garden = g;
-  const x0 = (n % 2) * 3;
-  const y0 = Math.floor(n / 2) * 3;
+  const x0 = (i % 2) * 3;
+  const y0 = Math.floor(i / 2) * 3;
   this.tiles = [
     garden.tiles[x0    , y0],      //northwest
     garden.tiles[x0 + 1, y0],      //north

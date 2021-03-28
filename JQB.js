@@ -61,7 +61,7 @@ function JqbQuad(g, i) {
 
   function check() {
     console.log("quad " + n);
-    tiles.forEach(t => console.log(t.name));
+    tiles.forEach(t => console.log(t.plantName()));
   }
 
 }
@@ -69,7 +69,7 @@ function JqbQuad(g, i) {
 function JqbTile(g, i, j) {
   const garden = g;
   const tile = garden.gardenGame.getTile(i, j);
-  get name() {
+  function plantName() {
     return garden.gardenGame.plantsbyId[tile[0] - 1].name;
   }
 }

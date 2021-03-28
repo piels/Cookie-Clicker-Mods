@@ -14,38 +14,39 @@ Empty ◄─────────────────────┬─�
 
 
 console.log('loaded JQB');
+const G = Game.Objects['Farm'].minigame;
 var JQB = new JqbGarden;
 JQB.tickLoop();
 
 function JqbGarden() {
-  const gardenGame = Game.Objects['Farm'].minigame;
+  // const gardenGame = Game.Objects['Farm'].minigame;
   var soilMode = undefined;
   var quads = [];
   var tiles = [];
   var i, j;
   for (i = 0; i<6;i++) {
     for (j = 0; j < 6; j++) {
-      tiles[i][j] = new JqbTile(this,i,j);
+      tiles[i][j] = new JqbTile(this, i, j);
     }
   }
   for ( i = 0; i < 4; i++) {
-    quads[i] = new JqbQuad(this,i);
+    quads[i] = new JqbQuad(this, i);
   }
   function tickLoop(){
     for (i = 0; i < 4; i++) {
 			quads[i].check();
 		}
-    var nextLoop = setTimeout(tickLoop, this.gardenGame.nextStep - Date.now() + 5000);
+    var nextLoop = setTimeout(tickLoop, G.nextStep - Date.now() + 5000);
   }
 
 }
 
 function JqbQuad(g, i) {
-  const n = i;
-  const garden = g;
+  this.n = i;
+  this.garden = g;
   const x0 = (n % 2) * 3;
   const y0 = Math.floor(n / 2) * 3;
-  const tiles = [
+  this.tiles = [
     garden.tiles[x0    , y0],      //northwest
     garden.tiles[x0 + 1, y0],      //north
     garden.tiles[x0 + 2, y0],      //northeast
@@ -56,20 +57,20 @@ function JqbQuad(g, i) {
     garden.tiles[x0    , y0 + 1],  //west
     garden.tiles[x0 + 1, y0 + 1]   //center
   ];
-  const outer = tiles.slice(0,7);
-  const center = tiles[8];
+  this.outer = tiles.slice(0,7);
+  this.center = tiles[8];
 
-  function check() {
+  this.check = function() {
     console.log("quad " + n);
     tiles.forEach(t => console.log(t.plantName()));
   }
 
 }
 
-function JqbTile(g, i, j) {
-  const garden = g;
-  const tile = garden.gardenGame.getTile(i, j);
-  function plantName() {
-    return garden.gardenGame.plantsbyId[tile[0] - 1].name;
+function JqbTile(garden, i, j) {
+  this.garden = garden;
+  this.tile = G.getTile(i, j);
+  this.plantName = function() {
+    return G.plantsbyId[tile[0] - 1].name;
   }
 }

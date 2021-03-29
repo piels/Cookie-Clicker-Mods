@@ -58,7 +58,7 @@ function JqbQuad(g, i) {
     this.garden.tiles[x0    ][y0 + 1],  //west
     this.garden.tiles[x0 + 1][y0 + 1]   //center
   ];
-  this.outer = this.tiles.slice(0,7);
+  this.outer = this.tiles.slice(0,8);
   this.center = this.tiles[8];
 
   this.check = function() {

@@ -37,7 +37,8 @@ function JqbGarden() {
     for (i = 0; i < 4; i++) {
 			this.quads[i].check();
 		}
-    var nextLoop = setTimeout(this.tickLoop, G.nextStep - Date.now() + 5000);
+    var self = this;
+    var nextLoop = setTimeout(() => {self.tickLoop()}, G.nextStep - Date.now() + 5000);
   }
 
 }

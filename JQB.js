@@ -16,6 +16,7 @@ Empty ◄─────────────────────┬─�
 console.log('loaded JQB');
 var G = Game.Objects['Farm'].minigame;
 var JQB = new JqbGarden;
+var fast = true;
 JQB.tickLoop();
 
 function JqbGarden() {
@@ -38,7 +39,7 @@ function JqbGarden() {
 			this.quads[i].check();
 		}
     var self = this;
-    var nextLoop = setTimeout(() => {self.tickLoop()}, G.nextStep - Date.now() + 5000);
+    var nextLoop = setTimeout(() => {self.tickLoop()}, fast ? 10000 : G.nextStep - Date.now() + 5000);
   }
 
 }

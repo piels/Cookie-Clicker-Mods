@@ -13,7 +13,7 @@ const lazyGarden = {
   fast: false,
   tickLoop: function(){
     // call workers
-    this.workers.forEach(w => w.work(this.g));
+    this.workers.forEach(w => w.work());
     // close out tickLoop function
     var tOut = this.fast ? 10000 : this.g.nextStep - Date.now() + 5000;
     var self = this;
@@ -23,8 +23,8 @@ const lazyGarden = {
 }
 
 const seedCollector = {
-
-  work: function(g){
+  g: lazyGarden.g,
+  work: function(){
     // check each tile for new seeds
     console.log("seed collector");
     for (let x = 0; x < 6; x++) {

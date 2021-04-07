@@ -26,15 +26,17 @@ const seedCollector = {
 
   work: function(g){
     // check each tile for new seeds
-    console.log("seedCollector.work");
+    console.log("seed collector");
     for (let x = 0; x < 6; x++) {
       for (let y = 0; y < 6; y++) {
         var tile = g.getTile(x,y);
         if (tile[0] > 1) {
           var plant = g.plantsById[tile[0] - 1];
           var age = tile[1];
+          console.log(x,y,plant.name,age);
           if (!plant.unlocked && (age > plant.mature) ) {
             g.harvest(x,y);
+            console.log("harvested");
           }
         }
       }

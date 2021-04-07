@@ -31,7 +31,7 @@ const seedCollector = {
       for (let y = 0; y < 6; y++) {
         var tile = g.getTile(x,y);
         if (tile[0] > 1) {
-          var plant = g.plantsbyId[t[0] - 1];
+          var plant = g.plantsbyId[tile[0] - 1];
           var age = tile[1];
           if (!plant.unlocked && (age > plant.mature) ) {
             g.harvest(x,y);

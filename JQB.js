@@ -87,4 +87,5 @@ function JqbTile(garden, i, j) {
 
 /*
 
-//				 M.harvestAll(0,1,1);//ctrl & shift, harvest only mature non-immortal plants
+ M.harvestAll(0,1,1);//ctrl & shift, harvest only mature non-immortal plants
+*/

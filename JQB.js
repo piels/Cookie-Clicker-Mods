@@ -16,7 +16,6 @@ Empty ◄─────────────────────┬─�
 console.log('loaded JQB');
 var G = Game.Objects['Farm'].minigame;
 var JQB = new JqbGarden;
-var fast = true;
 JQB.tickLoop();
 
 function JqbGarden() {
@@ -24,6 +23,7 @@ function JqbGarden() {
   this.soilMode = undefined;
   this.quads = [];
   this.tiles = [];
+  this.fast = false; // set true for fast loops
   var i, j;
   for (i = 0; i < 6; i++) {
     this.tiles[i] = new Array();
@@ -35,11 +35,12 @@ function JqbGarden() {
     this.quads[i] = new JqbQuad(this, i);
   }
   this.tickLoop = function(){
+    G.harvestAll(G.plants.queenbeetLump,1); // skip the fooforaw and harvest any mature JQBs
     for (i = 0; i < 4; i++) {
 			this.quads[i].check();
 		}
     var self = this;
-    var nextLoop = setTimeout(() => {self.tickLoop()}, fast ? 10000 : G.nextStep - Date.now() + 5000);
+    var nextLoop = setTimeout(() => {self.tickLoop()}, this.fast ? 10000 : G.nextStep - Date.now() + 5000);
   }
 
 }
@@ -65,7 +66,8 @@ function JqbQuad(g, i) {
 
   this.check = function() {
     console.log("quad " + this.n);
-    this.outer.forEach(t => console.log(t.plantName()));
+    this.tiles.forEach(t => console.log(t.plantName()));
+
   }
 
 }
@@ -82,3 +84,7 @@ function JqbTile(garden, i, j) {
     }
   }
 }
+
+/*
+
+//				 M.harvestAll(0,1,1);//ctrl & shift, harvest only mature non-immortal plants

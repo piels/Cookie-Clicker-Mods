@@ -42,9 +42,25 @@ const seedCollector = {
       }
     }
   }
-
-
 }
+
+const weedEater = {
+  g: lazyGarden.g,
+  work: function() {
+    console.log("weed eater");
+    for (let x = 0; x < 6; x++) {
+      for (let y = 0; y < 6; y++) {
+        var tile = this.g.getTile(x,y);
+        if (tile[0] > 1) {
+// smart code goes here
+          }
+        }
+      }
+    }
+
+
+  }
+
 
 lazyGarden.workers.push(seedCollector);
 lazyGarden.tickLoop();

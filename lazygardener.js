@@ -37,6 +37,29 @@ const seedCollector = {
   }
 }
 
+const lastChancer = {
+  g: lazyGarden.g,
+  work: function () {
+    // check each tile for new seeds
+    console.log("last chancer");
+    for (let x = 0; x < 6; x++) {
+      for (let y = 0; y < 6; y++) {
+        var tile = this.g.getTile(x, y);
+        if (tile[0] > 1) {
+          var plant = this.g.plantsById[tile[0] - 1];
+          var age = tile[1];
+          //console.log(x,y,plant.name,age);
+          if ((age + plant.ageTick + plant.ageTickR > 100) && !(plant.onDie)) {
+            this.g.harvest(x, y);
+            console.log("harvested " + plant.name);
+          }
+        }
+      }
+    }
+  }
+}
+
+
 const weedEater = {
   g: lazyGarden.g,
   unlockedPlantsLastCheck: 0,
@@ -109,4 +132,5 @@ const jqbGardener = {
 
 lazyGarden.workers.push(seedCollector);
 // lazyGarden.workers.push(weedEater);
+lazyGarden.workers.push(lastChancer);
 lazyGarden.tickLoop();

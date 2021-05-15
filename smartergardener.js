@@ -1,6 +1,18 @@
+/****
+ * 
+ * 
+ * 
+ ****/
+
+console.log("");
+
+
+
 /************
 
-==Stage 1: Meddleweed & Co.==
+
+
+== Stage 1: Meddleweed & Co. ==
 Soil: fertilizer
 Let Meddleweed grow
 Harvest first mature Meddleweed ASAP
@@ -20,7 +32,6 @@ Shimmerlily x Cronerice: Elderwort
 Baker's Wheat x Brown Mold: Chocoroot
 Brown Mold: White Mildew
 Chocoroot x White Mildew: White Chocoroot
-    
 
 Shimmerlily x White Chocoroot: Whiskerbloom
 Shimmerlily x Whiskerbloom: Chimerose
@@ -83,6 +94,8 @@ Juicy Queenbeet
 
 
 ************/
+
+
 
 
 console.log('loaded lazy gardener');
@@ -167,27 +180,6 @@ const weedEater = {
 
 }
 
-const lastChancer = {
-  g: lazyGarden.g,
-  work: function () {
-    // check each tile for new seeds
-    console.log("last chancer");
-    for (let x = 0; x < 6; x++) {
-      for (let y = 0; y < 6; y++) {
-        var tile = this.g.getTile(x, y);
-        if (tile[0] > 1) {
-          var plant = this.g.plantsById[tile[0] - 1];
-          var age = tile[1];
-          //console.log(x,y,plant.name,age);
-          if (age + plant.ageTick + plant.ageTickR > 100) {
-            this.g.harvest(x, y);
-            console.log("harvested " + plant.name);
-          }
-        }
-      }
-    }
-  }
-}
 
 
 const jqbGardener = {
@@ -218,5 +210,4 @@ const jqbGardener = {
 
 lazyGarden.workers.push(seedCollector);
 // lazyGarden.workers.push(weedEater);
-lazyGarden.workers.push(lastChancer);
 lazyGarden.tickLoop();

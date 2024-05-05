@@ -28,13 +28,23 @@ const goldCloverGrower = {
           if (tile[0] == 0) {  // 0 = no plant
             console.log("tryna plant goldenClover");
             document.getElementById("gardenSeed-5").click();
-            this.g.clickTile(x,y);  
+            this.g.clickTile(x,y); 
           }
         }
       }
-      // document.getElementById("gardenSeed-5").click();
+    } else if (Game.cookies >= this.g.getCost(myNurseTulip) * 1000) {  // nursetulips in budget
+        for (let x = 0; x < 6; x++) {
+          for (let y = 1; y < 6; y = y + 2) {
+            var tile = this.g.getTile(x, y);
+            if (tile[0] == 0) {  // 0 = no plant
+              console.log("tryna plant nurseTulip");
+              document.getElementById("gardenSeed-16").click();
+              this.g.clickTile(x,y); 
+            }
+          }
+        }
     } else {
-      console.log("not enough cookies to plant")
+        console.log("not enough cookies to plant")
     }
   }
 }

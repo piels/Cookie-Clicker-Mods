@@ -21,15 +21,18 @@ const goldCloverGrower = {
     console.log("work goldCloverGrower")
     let myGoldClover = this.g.plantsById[5];
     let myNurseTulip = this.g.plantsById[16];
-    if (Game.cookies >= this.g.getCost(myGoldClover) * 1000) {  
+    if (Game.cookies >= this.g.getCost(myGoldClover) * 1000) {  // golden clovers in budget
+      document.getElementById("gardenSeed-5").click();
       for (let x = 0; x < 6; x++) {
         for (let y = 0; y < 6; y = y + 2) {
           var tile = this.g.getTile(x, y);
           if (tile[0] == 0) {  // 0 = no plant
-            console.log("wanna plant goldenClover");
+            console.log("tryna plant goldenClover");
+            this.g.clickTile(x,y);  
           }
         }
       }
+      document.getElementById("gardenSeed-5").click();
     } else {
       console.log("not enough cookies to plant")
     }

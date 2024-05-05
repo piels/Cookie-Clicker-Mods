@@ -17,10 +17,10 @@ const simpleGarden = {
 
 const goldCloverGrower = {
   g: simpleGarden.g,
-  myGoldClover: this.g.plantsById[5],
-  myNurseTulip: this.g.plantsById[16],
   work: function () {
-    if (Game.cookies >= this.g.getCost(this.myGoldClover) * 1000) {  
+    let myGoldClover = this.g.plantsById[5];
+    let myNurseTulip = this.g.plantsById[16];
+    if (Game.cookies >= this.g.getCost(myGoldClover) * 1000) {  
       for (let x = 0; x < 6; x++) {
         for (let y = 0; y < 6; y = y + 2) {
           var tile = this.g.getTile(x, y);

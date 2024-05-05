@@ -25,9 +25,9 @@ const goldCloverGrower = {
       for (let x = 0; x < 6; x++) {
         for (let y = 0; y < 6; y = y + 2) {
           var tile = this.g.getTile(x, y);
-          document.getElementById("gardenSeed-5").click();
           if (tile[0] == 0) {  // 0 = no plant
             console.log("tryna plant goldenClover");
+            document.getElementById("gardenSeed-5").click();
             this.g.clickTile(x,y);  
           }
         }
